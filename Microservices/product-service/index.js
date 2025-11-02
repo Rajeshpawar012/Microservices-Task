@@ -1,19 +1,17 @@
 const express = require('express');
 const app = express();
-const port = 3001;
+const PORT = 3001;
 
-app.get('/health', (req, res) => {
-  res.json({ status: 'Product Service is healthy' });
-});
+app.use(express.json());
 
 app.get('/products', (req, res) => {
-  const products = [
-    { id: 1, name: 'Laptop', price: 999 },
-    { id: 2, name: 'Phone', price: 699 }
-  ];
-  res.json(products);
+  res.json([
+    { id: 101, name: 'Laptop', price: 1200 },
+    { id: 102, name: 'Smartphone', price: 800 }
+  ]);
 });
 
-app.listen(port, () => {
-  console.log(`Product service running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Product Service running on port ${PORT}`);
 });
+
