@@ -53,7 +53,43 @@ This document provides details on testing various services after running the `do
 
 Happy testing!
 
+---
+### **File structure**
+<img width="178" height="322" alt="Structure" src="https://github.com/user-attachments/assets/86d818ec-8ac6-4abb-b886-04686cf3d844" />
 
+---
+### **user-service/Dokerfile**
+
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]
+---
+### **product-service/Dokerfile**
+
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3001
+CMD ["npm", "start"]
+
+---
+### **gateway-service/Dokerfile**
+
+FROM node:18
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3003
+CMD ["npm", "start"]
+
+---
 <img width="785" height="196" alt="output" src="https://github.com/user-attachments/assets/c27325d4-8b3e-4eb8-bfb3-248b46fe706c" />
 
 ---
