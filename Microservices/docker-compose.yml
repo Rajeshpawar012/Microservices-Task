@@ -1,31 +1,33 @@
-events {}
+version: '3.8'
 
-http {
-  upstream user_service {
-    server user-service:3000;
-  }
+services:
+  user-service:
+    build: ./user-service
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
 
-  upstream product_service {
-    server product-service:3001;
-  }
+  product-service:
+    build: ./product-service
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
 
-  upstream order_service {
-    server order-service:3002;
-  }
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - "3003:3003"
+    environment:
+      - USER_SERVICE_URL=http://user-service:3000
+      - PRODUCT_SERVICE_URL=http://product-service:3001
+    depends_on:
+      - user-service
+      - product-service
+    networks:
+      - app-network
 
-  server {
-    listen 80;
-
-    location /users/ {
-      proxy_pass http://user_service;
-    }
-
-    location /products/ {
-      proxy_pass http://product_service;
-    }
-
-    location /orders/ {
-      proxy_pass http://order_service;
-    }
-  }
-}
+networks:
+  app-network:
+    driver: bridge
