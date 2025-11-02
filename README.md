@@ -91,6 +91,44 @@ EXPOSE 3003 <br>
 CMD ["npm", "start"] <br>
 
 ---
+### docker-compose.yml ###
+
+version: '3.8' <br>
+
+services: <br>
+  user-service: <br>
+    build: ./user-service <br>
+    ports: <br>
+      - "3000:3000" <br>
+    networks: <br>
+      - app-network <br>
+
+  product-service: <br>
+    build: ./product-service <br>
+    ports: <br>
+      - "3001:3001" <br>
+    networks: <br>
+      - app-network <br>
+
+  gateway-service: <br>
+    build: ./gateway-service <br>
+    ports: <br>
+      - "3003:3003" <br>
+    environment: <br>
+      - USER_SERVICE_URL=http://user-service:3000 <br>
+      - PRODUCT_SERVICE_URL=http://product-service:3001 <br>
+    depends_on: <br>
+      - user-service <br>
+      - product-service <br>
+    networks: <br>
+      - app-network <br>
+
+networks: <br>
+  app-network: <br>
+    driver: bridge <br>
+
+
+---
 <img width="785" height="196" alt="output" src="https://github.com/user-attachments/assets/c27325d4-8b3e-4eb8-bfb3-248b46fe706c" />
 
 ---
