@@ -55,39 +55,40 @@ Happy testing!
 
 ---
 ### **File structure**
+
 <img width="178" height="322" alt="Structure" src="https://github.com/user-attachments/assets/86d818ec-8ac6-4abb-b886-04686cf3d844" />
 
 ---
 ### **user-service/Dokerfile**
 
-FROM node:18
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
+FROM node:18 <br>
+WORKDIR /app <br>
+COPY package*.json ./ <br>
+RUN npm install <br>
+COPY . . <br>
 EXPOSE 3000
-CMD ["npm", "start"]
+CMD ["npm", "start"] <br> 
 ---
 ### **product-service/Dokerfile**
 
-FROM node:18
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3001
-CMD ["npm", "start"]
+FROM node:18 <br>
+WORKDIR /app <br>
+COPY package*.json ./ <br>
+RUN npm install <br>
+COPY . . <br>
+EXPOSE 3001 <br>
+CMD ["npm", "start"] <br>
 
 ---
 ### **gateway-service/Dokerfile**
 
-FROM node:18
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-EXPOSE 3003
-CMD ["npm", "start"]
+FROM node:18 <br>
+WORKDIR /app <br>
+COPY package*.json ./ <br>
+RUN npm install <br>
+COPY . . <br>
+EXPOSE 3003 <br>
+CMD ["npm", "start"] <br>
 
 ---
 <img width="785" height="196" alt="output" src="https://github.com/user-attachments/assets/c27325d4-8b3e-4eb8-bfb3-248b46fe706c" />
