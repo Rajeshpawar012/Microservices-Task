@@ -61,13 +61,13 @@ Happy testing!
 ---
 ### **user-service/Dokerfile**
 
-FROM node:18 <br>
+<sup> FROM node:18 <br>
 WORKDIR /app <br>
 COPY package*.json ./ <br>
 RUN npm install <br>
 COPY . . <br>
 EXPOSE 3000
-CMD ["npm", "start"] <br> 
+CMD ["npm", "start"] <br> </sup>
 ---
 ### **product-service/Dokerfile**
 
