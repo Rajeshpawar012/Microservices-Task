@@ -29,17 +29,6 @@ This document provides details on testing various services after running the `do
 
 ---
 
-### **Order Service**
-- **Base URL:** `http://localhost:3002`
-- **Endpoints:**
-  - **List Orders:**  
-    ```
-    curl http://localhost:3002/orders
-    ```
-    Or open in your browser: [http://localhost:3002/orders](http://localhost:3002/orders)
-
----
-
 ### **Gateway Service**
 - **Base URL:** `http://localhost:3003/api`
 - **Endpoints:**
