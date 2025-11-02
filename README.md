@@ -30,20 +30,17 @@ This document provides details on testing various services after running the `do
 ---
 
 ### **Gateway Service**
-- **Base URL:** `http://localhost:3003/api`
+- **Base URL:** `http://localhost:3003/gateway`
 - **Endpoints:**
   - **Users:**  
     ```
-    curl http://localhost:3003/api/users
+    curl http://localhost:3003/gateway/users
     ```
   - **Products:**  
     ```
-    curl http://localhost:3003/api/products
+    curl http://localhost:3003/gateway/products
     ```
-  - **Orders:**  
-    ```
-    curl http://localhost:3003/api/orders
-    ```
+
 
 ---
 
